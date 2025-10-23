@@ -1,5 +1,7 @@
-export default async function loginAPI(){ 
-    let data = await fetch('localhost:8080/register');
+const loginAPI = async () => { 
+    let data = await fetch('localhost:8080');
     
     console.log(data);
 }
+
+export default loginAPI;
