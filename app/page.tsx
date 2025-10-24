@@ -1,18 +1,11 @@
-import Image from "next/image";
-import { useEffect } from "react";
-import loginAPI from "@/src/services/login";
+import formLogin from "@/src/components/formLogin";
 
-export default function Home() {
-
-useEffect(() => {
-
-});
-
-  return (
-    <>
-      <div>
-        
-      </div>
-    </>
-  );
+const Home = () => {
+    return(
+        <>
+            <div>
+                <formLogin />
+            </div>
+        </>
+    )
 }
