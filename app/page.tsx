@@ -1,12 +1,15 @@
-import formLogin from "@/src/components/formLogin";
+import Header from "@/src/layout/Header"
+import FormLogin from "@/src/components/FormLogin";
 
 const Home = () => {
     return(
         <>
             <div>
-                <formLogin />
-                
+                <Header />
+                <FormLogin />
             </div>
         </>
     )
 }
+
+export default Home;

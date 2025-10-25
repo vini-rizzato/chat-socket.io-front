@@ -1,11 +1,17 @@
+'use client'
 import login from "@/src/services/login";
+import Form from "next/form";
 
-const formLogin  = () => {
+const FormLogin = () => { 
+
+  const login = async () => {
+    console.log(login);
+  }
 
   return (
     <>
       <div>
-        <form>
+        <Form action="/login" name="login" id="login">
           <label htmlFor="email">
             Email
             <input type="email" name="email" />
@@ -15,11 +21,11 @@ const formLogin  = () => {
             <input type="password" name="senha" />
           </label>
 
-          <input type="submit" />
-        </form>
+          <input type="submit" onClick={() => login}/>
+        </Form>
       </div>
     </>
   );
 }
 
-export default formLogin;
+export default FormLogin;
