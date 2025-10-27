@@ -1,25 +1,27 @@
 import axios from "axios";
 
-interface dataLoginProps{
+interface dataRegisterProps{
+    nome: string,
     email: string,
     senha: string
 }
 
-export default async function login(data: dataLoginProps){
+export default async function(data: dataRegisterProps){
     try{
-        const {email, senha} = data;
+        const { nome, email, senha } = data;
 
-        const payloadLogin = {
-            email,
+        const payloadRegister = {
+            nome, 
+            email, 
             senha
         }
 
-        const resposta = await axios.post("http://localhost:8080/login", payloadLogin);
+        const resposta = await axios.post("http://localhost:8080/register", payloadRegister);
 
         return resposta.data;
-        
+
     }catch(erro:any){
-         if(erro.response) {
+        if(erro.response) {
             return { status: erro.response.status, message: erro.response.data?.message };
         }else{
             return { status: 0, message: "Servidor não responder" };

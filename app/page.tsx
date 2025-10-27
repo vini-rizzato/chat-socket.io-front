@@ -1,12 +1,10 @@
 import Header from "@/src/layout/Header"
-import FormLogin from "@/src/components/FormLogin";
 
 const Home = () => {
     return(
         <>
-            <div>
+            <div className="">
                 <Header />
-                <FormLogin />
             </div>
         </>
     )
