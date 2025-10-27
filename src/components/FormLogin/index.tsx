@@ -1,8 +1,10 @@
 'use client'
 import login from "@/src/services/login";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const FormLogin = () => { 
+  const router = useRouter();
 
   interface FormDataProps{
     email: string,
@@ -23,20 +25,26 @@ const FormLogin = () => {
       const loginEnvioApi = await login({
         email: formData.email,
         senha: formData.senha
-      })
+      });
 
       if(loginEnvioApi.status === 200){
         setMensagem("Login realizado com sucesso.");
-        localStorage.setItem('token:', loginEnvioApi.token);
+        localStorage.setItem('token', loginEnvioApi.token);
+        router.push("/");
+
       }else if(loginEnvioApi.status === 400){
         setMensagem("Login ou senha não estão corretos.");
+        console.log(loginEnvioApi.status);
       }else if(loginEnvioApi.status === 409){
         setMensagem("Usuário não encontrado.");
+        console.log(loginEnvioApi.status);
+      }else if(loginEnvioApi.status === 401){
+        setMensagem("Senha incorreta.");
       }else{
         setMensagem("Erro do servidor.");
         console.log(loginEnvioApi.status);
       }
-    }catch(err){
+    }catch{
       console.error("Login falhou.");
     }
   }

@@ -6,7 +6,7 @@ interface dataRegisterProps{
     senha: string
 }
 
-export default async function(data: dataRegisterProps){
+export default async function register(data: dataRegisterProps){
     try{
         const { nome, email, senha } = data;
 
